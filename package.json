@@ -1,13 +1,14 @@
 {
   "name": "gauge-playwright-boilerplate",
-  "version": "0.0.1",
   "description": "A boilerplate for Gauge with Playwright",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "dependencies": {
+    "gauge-ts": "0.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
   },
-  "keywords": [],
-  "author": "https://github.com/katawara",
-  "license": "MIT",
-  "packageManager": "pnpm@10.15.1"
+  "devDependencies": {
+    "@getgauge/cli": "^1.6.20",
+    "@types/node": "latest",
+    "taiko": "^1.4.0"
+  }
 }
