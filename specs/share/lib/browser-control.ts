@@ -5,10 +5,18 @@ const SCENARIO_KEY_BROWSER = "SCENARIO_KEY_BROWSER";
 const SCENARIO_KEY_CONTEXT = "SCENARIO_KEY_CONTEXT";
 const SCENARIO_KEY_PAGE = "SCENARIO_KEY_PAGE";
 
-export async function openBrowser(): Promise<void> {
-    const browser = await chromium.launch();
+type OpenBrowserArgs = {
+    headless?: boolean;
+    timeout?: number;
+}
+
+export async function openBrowser(args: OpenBrowserArgs = {}): Promise<void> {
+    const browser = await chromium.launch({ headless: args.headless });
     const context = await browser.newContext();
     const page = await context.newPage();
+    if (args.timeout) {
+        page.setDefaultTimeout(args.timeout);
+    }
 
     putScenarioValue(SCENARIO_KEY_BROWSER, browser);
     putScenarioValue(SCENARIO_KEY_CONTEXT, context);
