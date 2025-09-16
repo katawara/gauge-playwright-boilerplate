@@ -2,13 +2,14 @@
   "name": "gauge-playwright-boilerplate",
   "description": "A boilerplate for Gauge with Playwright",
   "dependencies": {
-    "gauge-ts": "0.3.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "@playwright/test": "1.55.0",
+    "gauge-ts": "0.3.5",
+    "ts-node": "10.9.2",
+    "tsconfig-paths": "4.2.0",
+    "typescript": "5.9.2"
   },
   "devDependencies": {
-    "@getgauge/cli": "^1.6.20",
-    "@types/node": "latest",
-    "taiko": "^1.4.0"
+    "@getgauge/cli": "1.6.20",
+    "@types/node": "24.5.0"
   }
 }
