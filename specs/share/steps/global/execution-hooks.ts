@@ -1,5 +1,5 @@
 import { AfterScenario, BeforeScenario } from "gauge-ts";
-import { closeBrowser, openBrowser } from "share/lib/browser-control";
+import { closeBrowser, openBrowser } from "@/share/lib/browser-control";
 
 export default class ExecutionHooks {
     @BeforeScenario()

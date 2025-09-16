@@ -1,5 +1,5 @@
 import { Browser, BrowserContext, chromium, Page } from "@playwright/test";
-import { getScenarioValue, putScenarioValue } from "./data-store";
+import { getScenarioValue, putScenarioValue } from "@/share/lib/data-store";
 
 const SCENARIO_KEY_BROWSER = "SCENARIO_KEY_BROWSER";
 const SCENARIO_KEY_CONTEXT = "SCENARIO_KEY_CONTEXT";

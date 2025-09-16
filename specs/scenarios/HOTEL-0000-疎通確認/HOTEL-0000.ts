@@ -1,6 +1,6 @@
 import { expect } from "@playwright/test";
 import { Gauge, Step } from "gauge-ts";
-import { getPage } from "share/lib/browser-control";
+import { getPage } from "@/share/lib/browser-control";
 
 export default class HOTEL0000 {
     @Step("[HOTEL-0000] 特になし")
