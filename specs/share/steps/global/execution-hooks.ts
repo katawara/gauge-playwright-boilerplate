@@ -1,10 +1,13 @@
 import { AfterScenario, BeforeScenario } from "gauge-ts";
-import { closeBrowser, openBrowser } from "share/lib/browser-control";
+import { closeBrowser, openBrowser } from "@/share/lib/browser-control";
 
 export default class ExecutionHooks {
     @BeforeScenario()
     public static async beforeScenario() {
-        await openBrowser();
+        const headless = process.env.headless === 'true';
+        const timeout = process.env.timeout ? Number(process.env.timeout) : undefined;
+
+        await openBrowser({ headless, timeout });
     }
 
     @AfterScenario()
