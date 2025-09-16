@@ -1,0 +1,8 @@
+# [HOTEL-0000] Hotel Planisphereのログイン画面にアクセスする
+
+* [HOTEL-0000] URL "https://hotel-example-site.takeyaqa.dev/ja/login.html" にアクセスする
+
+# [HOTEL-0000] ログイン画面が表示されること
+
+* [HOTEL-0000] テキスト "Hotel Planisphere" が表示されていること
+* [HOTEL-0000] テキスト "ログイン" が表示されていること
