@@ -1,5 +1,7 @@
 import { Browser, BrowserContext, chromium, Page } from "@playwright/test";
-import { getScenarioValue, putScenarioValue } from "@/share/lib/data-store";
+import { getScenarioValue, putSensitiveScenarioValue } from "@/share/lib/data-store";
+import { ExecutionContext } from "gauge-ts";
+import { recordTrace } from "@/share/lib/trace";
 
 const SCENARIO_KEY_BROWSER = "SCENARIO_KEY_BROWSER";
 const SCENARIO_KEY_CONTEXT = "SCENARIO_KEY_CONTEXT";
@@ -12,7 +14,10 @@ type OpenBrowserArgs = {
 
 export async function openBrowser(args: OpenBrowserArgs = {}): Promise<void> {
     const browser = await chromium.launch({ headless: args.headless });
+
     const context = await browser.newContext();
+    await context.tracing.start({ screenshots: true, snapshots: true, sources: true });
+
     const page = await context.newPage();
     if (args.timeout) {
         page.setDefaultTimeout(args.timeout);
@@ -23,7 +28,7 @@ export async function openBrowser(args: OpenBrowserArgs = {}): Promise<void> {
     putSensitiveScenarioValue(SCENARIO_KEY_PAGE, page);
 }
 
-export async function closeBrowser(): Promise<void> {
+export async function closeBrowser(executionContext: ExecutionContext): Promise<void> {
     const page = getScenarioValue<Page>(SCENARIO_KEY_PAGE);
     if (page) {
         await page.close();
@@ -31,6 +36,7 @@ export async function closeBrowser(): Promise<void> {
 
     const context = getScenarioValue<BrowserContext>(SCENARIO_KEY_CONTEXT);
     if (context) {
+        await recordTrace(context, executionContext);
         await context.close();
     }
 
