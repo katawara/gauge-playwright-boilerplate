@@ -1,5 +1,8 @@
 import { Browser, BrowserContext, chromium, Page } from "@playwright/test";
-import { getScenarioValue, putScenarioValue } from "@/share/lib/data-store";
+import { getScenarioValue, putSensitiveScenarioValue } from "@/share/lib/data-store";
+import { ExecutionContext } from "gauge-ts";
+import { recordTrace } from "@/share/lib/trace";
+import { recordVideo } from "./video";
 
 const SCENARIO_KEY_BROWSER = "SCENARIO_KEY_BROWSER";
 const SCENARIO_KEY_CONTEXT = "SCENARIO_KEY_CONTEXT";
@@ -12,25 +15,34 @@ type OpenBrowserArgs = {
 
 export async function openBrowser(args: OpenBrowserArgs = {}): Promise<void> {
     const browser = await chromium.launch({ headless: args.headless });
-    const context = await browser.newContext();
+
+    const context = await browser.newContext({ 
+        ignoreHTTPSErrors: true,
+        recordVideo: { dir: 'reports/playwright-report/videos/' }
+    });
+    await context.tracing.start({ screenshots: true, snapshots: true, sources: true });
+
     const page = await context.newPage();
     if (args.timeout) {
         page.setDefaultTimeout(args.timeout);
     }
 
-    putScenarioValue(SCENARIO_KEY_BROWSER, browser);
-    putScenarioValue(SCENARIO_KEY_CONTEXT, context);
-    putScenarioValue(SCENARIO_KEY_PAGE, page);
+    putSensitiveScenarioValue(SCENARIO_KEY_BROWSER, browser);
+    putSensitiveScenarioValue(SCENARIO_KEY_CONTEXT, context);
+    putSensitiveScenarioValue(SCENARIO_KEY_PAGE, page);
 }
 
-export async function closeBrowser(): Promise<void> {
+export async function closeBrowser(executionContext: ExecutionContext): Promise<void> {
     const page = getScenarioValue<Page>(SCENARIO_KEY_PAGE);
     if (page) {
         await page.close();
+        // 動画はページを閉じた後に保存しないと、操作が終わらなくなってしまう
+        await recordVideo(page, executionContext);
     }
 
     const context = getScenarioValue<BrowserContext>(SCENARIO_KEY_CONTEXT);
     if (context) {
+        await recordTrace(context, executionContext);
         await context.close();
     }
 

@@ -12,9 +12,12 @@
     "validate:specs": "gauge validate",
     "format:specs": "gauge format",
     "codegen": "playwright codegen",
-    "codegen:sample": "playwright codegen https://hotel-example-site.takeyaqa.dev/ja/login.html",
+    "codegen:sample": "playwright codegen \"https://hotel-example-site.takeyaqa.dev/ja/login.html\"",
     "show-trace": "playwright show-trace",
-    "open-report": "open reports/html-report/index.html"
+    "open-report": "open reports/html-report/index.html",
+    "clean:node": "git clean -xdf node_modules",
+    "clean:reports": "git clean -xdf reports",
+    "clean:install": "pnpm clean:node && pnpm install"
   },
   "dependencies": {
     "@playwright/test": "1.55.0",

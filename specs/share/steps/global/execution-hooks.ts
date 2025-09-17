@@ -1,4 +1,4 @@
-import { AfterScenario, BeforeScenario } from "gauge-ts";
+import { AfterScenario, BeforeScenario, ExecutionContext } from "gauge-ts";
 import { closeBrowser, openBrowser } from "@/share/lib/browser-control";
 
 export default class ExecutionHooks {
@@ -11,7 +11,7 @@ export default class ExecutionHooks {
     }
 
     @AfterScenario()
-    public static async afterScenario() {
-        await closeBrowser();
+    public static async afterScenario(executionContext: ExecutionContext) {
+        await closeBrowser(executionContext);
     }
 }
