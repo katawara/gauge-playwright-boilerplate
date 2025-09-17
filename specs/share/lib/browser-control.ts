@@ -18,9 +18,9 @@ export async function openBrowser(args: OpenBrowserArgs = {}): Promise<void> {
         page.setDefaultTimeout(args.timeout);
     }
 
-    putScenarioValue(SCENARIO_KEY_BROWSER, browser);
-    putScenarioValue(SCENARIO_KEY_CONTEXT, context);
-    putScenarioValue(SCENARIO_KEY_PAGE, page);
+    putSensitiveScenarioValue(SCENARIO_KEY_BROWSER, browser);
+    putSensitiveScenarioValue(SCENARIO_KEY_CONTEXT, context);
+    putSensitiveScenarioValue(SCENARIO_KEY_PAGE, page);
 }
 
 export async function closeBrowser(): Promise<void> {
