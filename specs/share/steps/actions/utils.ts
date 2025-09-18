@@ -33,7 +33,30 @@ export default class Utils {
         key: string,
         prefix: string,
     ) {
-        const randomText = await Generator.generateUniqueString(prefix);
+        const randomText = Generator.generateUniqueString({ prefix });
+        DataStore.putSpecValue(key, randomText);
+    }
+
+    @Step(
+        "Specの値 <key> にサフィックス <suffix> 付きのランダムな文字列を設定する",
+    )
+    public static async putSpecValueWithRandomTextWithSuffix(
+        key: string,
+        suffix: string,
+    ) {
+        const randomText = Generator.generateUniqueString({ suffix });
+        DataStore.putSpecValue(key, randomText);
+    }
+
+    @Step(
+        "Specの値 <key> にプレフィックス <prefix> とサフィックス <suffix> 付きのランダムな文字列を設定する",
+    )
+    public static async putSpecValueWithRandomTextWithAffix(
+        key: string,
+        prefix: string,
+        suffix: string,
+    ) {
+        const randomText = Generator.generateUniqueString({ prefix, suffix });
         DataStore.putSpecValue(key, randomText);
     }
 
@@ -50,7 +73,30 @@ export default class Utils {
         key: string,
         prefix: string,
     ) {
-        const randomText = await Generator.generateUniqueString(prefix);
+        const randomText = Generator.generateUniqueString({ prefix });
+        DataStore.putScenarioValue(key, randomText);
+    }
+
+    @Step(
+        "シナリオの値 <key> にサフィックス <suffix> 付きのランダムな文字列を設定する",
+    )
+    public static async putScenarioValueWithRandomTextWithSuffix(
+        key: string,
+        suffix: string,
+    ) {
+        const randomText = Generator.generateUniqueString({ suffix });
+        DataStore.putScenarioValue(key, randomText);
+    }
+
+    @Step(
+        "シナリオの値 <key> にプレフィックス <prefix> とサフィックス <suffix> 付きのランダムな文字列を設定する",
+    )
+    public static async putScenarioValueWithRandomTextWithAffix(
+        key: string,
+        prefix: string,
+        suffix: string,
+    ) {
+        const randomText = Generator.generateUniqueString({ prefix, suffix });
         DataStore.putScenarioValue(key, randomText);
     }
 }
