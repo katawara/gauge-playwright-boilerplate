@@ -6,7 +6,7 @@ tags: sample
 
 ### Given: 前提条件
 
-* [HOTEL-0000] 特になし
+* 特になし
 
 ### When: もし
 

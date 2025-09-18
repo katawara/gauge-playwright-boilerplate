@@ -98,7 +98,7 @@ function getPage(): Page {
     return page;
 }
 
-export const BroserSession = {
+export const BrowserSession = {
     getBrowser,
     getContext,
     getPage,
