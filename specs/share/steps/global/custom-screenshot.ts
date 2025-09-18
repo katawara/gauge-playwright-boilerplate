@@ -1,14 +1,16 @@
-import { getPage } from "@/share/lib/browser-control";
+import * as path from "node:path";
 import { CustomScreenshotWriter } from "gauge-ts";
-import * as path from "path";
+import { getPage } from "@/share/lib/browser-control";
 
 export default class CustomScreenshot {
+    private constructor() {}
+
     /**
      * Gaugeはデフォルトで画面全体のスクリーンショットを撮ってしまうため、
-     * CustomScreenshotWriterで修飾してスクリーンショットにこの関数を使うようにしています。
+     * CustomScreenshotWriterで修飾してスクリーンショットにこの関数を使うようにしている。
      * Playwrightのスクリーンショットを撮る方法を使うことで、
-     * Playwrightで開いている画面だけのスクリーンショットを撮ることができます。
-     * 環境変数のgauge_screenshots_dirで指定されているディレクトリにスクリーンショットを保存します。
+     * Playwrightで開いている画面だけのスクリーンショットを撮ることができる。
+     * 環境変数のgauge_screenshots_dirで指定されているディレクトリにスクリーンショットを保存する。
      * @returns スクリーンショットのファイル名
      */
     @CustomScreenshotWriter()

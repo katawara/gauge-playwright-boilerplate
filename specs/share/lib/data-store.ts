@@ -4,12 +4,18 @@ export function putSensitiveScenarioValue<T>(key: string, value: T): void {
     putScenarioValue(key, value, true);
 }
 
-export function putScenarioValue<T>(key: string, value: T, isSensitive: boolean = false): void {
+export function putScenarioValue<T>(
+    key: string,
+    value: T,
+    isSensitive: boolean = false,
+): void {
     const store = DataStoreFactory.getScenarioDataStore();
     store.put(key, value);
-    
+
     if (!isSensitive) {
-        Gauge.writeMessage(`Stored in scenario data store: ${key} = ${JSON.stringify(value)}`);
+        Gauge.writeMessage(
+            `Stored in scenario data store: ${key} = ${JSON.stringify(value)}`,
+        );
     }
 }
 
@@ -27,12 +33,18 @@ export function putSensitiveSpecValue<T>(key: string, value: T): void {
     putSpecValue(key, value, true);
 }
 
-export function putSpecValue<T>(key: string, value: T, isSensitive: boolean = false): void {
+export function putSpecValue<T>(
+    key: string,
+    value: T,
+    isSensitive: boolean = false,
+): void {
     const store = DataStoreFactory.getSpecDataStore();
     store.put(key, value);
 
     if (!isSensitive) {
-        Gauge.writeMessage(`Stored in spec data store: ${key} = ${JSON.stringify(value)}`);
+        Gauge.writeMessage(
+            `Stored in spec data store: ${key} = ${JSON.stringify(value)}`,
+        );
     }
 }
 
