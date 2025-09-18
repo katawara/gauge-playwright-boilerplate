@@ -3,6 +3,8 @@ import { Gauge, Step } from "gauge-ts";
 import { getPage } from "@/share/lib/browser-control";
 
 export default class HOTEL0000 {
+    private constructor() {}
+
     @Step("[HOTEL-0000] 特になし")
     public static async doNothing() {
         Gauge.writeMessage("Do nothing");

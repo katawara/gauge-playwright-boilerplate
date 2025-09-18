@@ -11,6 +11,9 @@
     "run:ci:wip": "gauge run --env ci --parallel --tags \"wip\" --max-retries-count=3",
     "validate:specs": "gauge validate",
     "format:specs": "gauge format",
+    "check:code": "biome check .",
+    "check:code:apply": "biome check . --write",
+    "check:ci:code": "biome ci .",
     "codegen": "playwright codegen",
     "codegen:sample": "playwright codegen \"https://hotel-example-site.takeyaqa.dev/ja/login.html\"",
     "show-trace": "playwright show-trace",
@@ -27,6 +30,7 @@
     "typescript": "5.9.2"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.2.4",
     "@getgauge/cli": "1.6.20",
     "@types/node": "24.5.0"
   }
