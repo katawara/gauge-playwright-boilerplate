@@ -1,10 +1,10 @@
 import { DataStoreFactory, Gauge } from "gauge-ts";
 
-export function putSensitiveScenarioValue<T>(key: string, value: T): void {
+function putSensitiveScenarioValue<T>(key: string, value: T): void {
     putScenarioValue(key, value, true);
 }
 
-export function putScenarioValue<T>(
+function putScenarioValue<T>(
     key: string,
     value: T,
     isSensitive: boolean = false,
@@ -19,7 +19,7 @@ export function putScenarioValue<T>(
     }
 }
 
-export function getScenarioValue<T = string>(key: string): T | undefined {
+function getScenarioValue<T = string>(key: string): T | undefined {
     const store = DataStoreFactory.getScenarioDataStore();
     const value = store.get(key);
 
@@ -29,11 +29,11 @@ export function getScenarioValue<T = string>(key: string): T | undefined {
     return value as T;
 }
 
-export function putSensitiveSpecValue<T>(key: string, value: T): void {
+function putSensitiveSpecValue<T>(key: string, value: T): void {
     putSpecValue(key, value, true);
 }
 
-export function putSpecValue<T>(
+function putSpecValue<T>(
     key: string,
     value: T,
     isSensitive: boolean = false,
@@ -48,7 +48,7 @@ export function putSpecValue<T>(
     }
 }
 
-export function getSpecValue<T = string>(key: string): T | undefined {
+function getSpecValue<T = string>(key: string): T | undefined {
     const store = DataStoreFactory.getSpecDataStore();
     const value = store.get(key);
 
@@ -57,3 +57,12 @@ export function getSpecValue<T = string>(key: string): T | undefined {
     }
     return value as T;
 }
+
+export const DataStore = {
+    putSensitiveScenarioValue,
+    putScenarioValue,
+    getScenarioValue,
+    putSensitiveSpecValue,
+    putSpecValue,
+    getSpecValue,
+};

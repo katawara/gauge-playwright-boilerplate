@@ -1,6 +1,6 @@
 import * as path from "node:path";
 import { CustomScreenshotWriter } from "gauge-ts";
-import { getPage } from "@/share/lib/browser-control";
+import { BroserSession } from "@/share/lib/browser-control";
 
 export default class CustomScreenshot {
     private constructor() {}
@@ -18,7 +18,7 @@ export default class CustomScreenshot {
         const dir = process.env.gauge_screenshots_dir ?? "";
         const filePath = path.join(dir, `screenshot-${Date.now()}.png`);
 
-        const page = await getPage();
+        const page = BroserSession.getPage();
         await page.screenshot({ path: filePath, fullPage: true });
 
         return path.basename(filePath);

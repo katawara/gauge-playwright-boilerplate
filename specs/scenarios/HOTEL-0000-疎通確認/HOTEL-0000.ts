@@ -1,6 +1,6 @@
 import { expect } from "@playwright/test";
 import { Gauge, Step } from "gauge-ts";
-import { getPage } from "@/share/lib/browser-control";
+import { BroserSession } from "@/share/lib/browser-control";
 
 export default class HOTEL0000 {
     private constructor() {}
@@ -12,14 +12,14 @@ export default class HOTEL0000 {
 
     @Step("[HOTEL-0000] URL <url> にアクセスする")
     public static async gotoLoginPage(url: string) {
-        const page = await getPage();
+        const page = BroserSession.getPage();
         await page.goto(url);
     }
 
     @Step("[HOTEL-0000] テキスト <text> が表示されていること")
     public static async checkDisplay(text: string) {
-        const page = await getPage();
-        const locator = await page.getByText(text).first();
+        const page = BroserSession.getPage();
+        const locator = page.getByText(text).first();
         await expect(locator).toBeVisible();
     }
 }
