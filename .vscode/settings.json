@@ -1,8 +1,21 @@
 {
-    "files.associations": {
-        "*.spec": "gauge",
-        "*.cpt": "gauge"
-    },
-    "files.autoSave": "off",
-    "files.autoSaveDelay": 500
+  "files.associations": {
+    "*.spec": "gauge",
+    "*.cpt": "gauge"
+  },
+  "files.autoSave": "off",
+  "files.autoSaveDelay": 500,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "biomejs.biome",
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "biomejs.biome"
+  }
 }
