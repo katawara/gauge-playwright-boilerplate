@@ -1,4 +1,4 @@
-import * as path from "node:path";
+import path from "node:path";
 import type { BrowserContext } from "@playwright/test";
 import { type ExecutionContext, Gauge } from "gauge-ts";
 

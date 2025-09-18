@@ -1,6 +1,7 @@
-import * as path from "node:path";
+import path from "node:path";
+import dayjs from "dayjs";
 import { CustomScreenshotWriter } from "gauge-ts";
-import { getPage } from "@/share/lib/browser-control";
+import { BrowserSession } from "@/share/lib/browser-control";
 
 export default class CustomScreenshot {
     private constructor() {}
@@ -15,10 +16,13 @@ export default class CustomScreenshot {
      */
     @CustomScreenshotWriter()
     public static async takeCustomScreenshot(): Promise<string> {
-        const dir = process.env.gauge_screenshots_dir ?? "";
-        const filePath = path.join(dir, `screenshot-${Date.now()}.png`);
+        const directory = process.env.gauge_screenshots_dir ?? "";
+        const filePath = path.join(
+            directory,
+            `screenshot-${dayjs().format("YYYY-MM-DD-HH-mm-ss-SSS")}.png`,
+        );
 
-        const page = await getPage();
+        const page = BrowserSession.getPage();
         await page.screenshot({ path: filePath, fullPage: true });
 
         return path.basename(filePath);
