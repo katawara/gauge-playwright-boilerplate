@@ -8,14 +8,20 @@ GaugeとPlaywrightを組み合わせて作ったE2Eテストの実行環境で�
 
 本リポジトリは以下の技術スタックを採用しています。
 
+**開発環境**
 - 言語: TypeScript
 - 環境バージョンマネージャー: mise
 - アプリケーションパッケージマネージャー: pnpm
-- ライブラリアップデート: Renovate
+
+**テスト関連**
 - 自動テストフレームワーク: Gauge
 - ブラウザ操作: Playwright
-- Linter, Formatter: biome
 - 日付操作: dayjs
+
+**品質管理・運用**
+- Linter, Formatter: biome
+- ライブラリアップデート: Renovate
+- CI: GitHub Actions
 
 ## 環境構築 for Mac
 

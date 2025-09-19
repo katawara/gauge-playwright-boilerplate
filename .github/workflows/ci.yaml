@@ -1,0 +1,53 @@
+name: CI
+on: workflow_dispatch
+jobs:
+  lint-code:
+    name: Lint code (use Biome)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5.0.0
+      - name: Setup Node.js environment
+        uses: jdx/mise-action@v3.2.0
+        with:
+          install_args: "node"
+      - name: Enable pnpm via Corepack
+        run: corepack enable pnpm
+      - name: Install dependencies
+        run: pnpm install
+      - name: Lint code
+        run: pnpm check:ci:code
+
+  lint-specs:
+    name: Lint specs (use Gauge)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5.0.0
+      - name: Setup Node.js environment
+        uses: jdx/mise-action@v3.2.0
+        with:
+          install_args: "node"
+      - name: Enable pnpm via Corepack
+        run: corepack enable pnpm
+      - name: Install dependencies
+        run: pnpm install
+      - name: Lint Gauge specs
+        run: pnpm check:ci:specs
+
+  compile:
+    name: Compile
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5.0.0
+      - name: Setup Node.js environment
+        uses: jdx/mise-action@v3.2.0
+        with:
+          install_args: "node"
+      - name: Enable pnpm via Corepack
+        run: corepack enable pnpm
+      - name: Install dependencies
+        run: pnpm install
+      - name: Compile
+        run: pnpm compile
