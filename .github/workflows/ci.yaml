@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Lint Gauge specs
-        run: pnpm check:ci:specs
+        run: pnpm check:specs
 
   compile:
     name: Compile
