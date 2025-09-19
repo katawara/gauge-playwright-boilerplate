@@ -1,6 +1,19 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "labels": ["renovatebot"],
+  "timezone": "Asia/Tokyo",
   "rangeStrategy": "pin",
-  "extends": ["config:recommended", "helpers:pinGitHubActionDigests"]
+  "extends": ["config:recommended", "helpers:pinGitHubActionDigests"],
+  "packageRules": [
+    {
+      "groupName": "playwright",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["@playwright/test"]
+    },
+    {
+      "groupName": "playwright",
+      "matchManagers": ["docker"],
+      "matchPackageNames": ["mcr.microsoft.com/playwright"]
+    }
+  ]
 }
