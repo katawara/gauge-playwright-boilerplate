@@ -67,7 +67,7 @@ jobs:
           install_args: "node"
       # Playwrightのコンテナイメージを使うため、pnpmを手動でインストールする必要がある
       - name: Install pnpm
-        run: npm install -g pnpm@10.17.0
+        run: npm install -g pnpm@$(grep 'packageManager.*pnpm@' package.json | sed 's/.*pnpm@\([^+]*\).*/\1/')
       - name: Enable pnpm via Corepack
         run: corepack enable pnpm
       - name: Install dependencies
