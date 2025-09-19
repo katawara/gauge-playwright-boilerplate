@@ -23,6 +23,7 @@
     "rootDir": "specs",
     "outDir": "dist",
     "skipLibCheck": true,
+    "strict": true
   },
   "exclude": ["node_modules"]
 }

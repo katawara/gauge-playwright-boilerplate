@@ -6,10 +6,27 @@ async function saveVideo(
     page: Page,
     executionContext: ExecutionContext,
 ): Promise<void> {
-    const fileName = executionContext
-        .getCurrentScenario()
-        .getName()
-        .replace(/\s+/g, "-");
+    const video = page.video();
+    if (!video) {
+        console.warn("No video recording available to save");
+        return;
+    }
+
+    const scenario = executionContext.getCurrentScenario();
+    if (!scenario) {
+        console.warn("No current scenario available for video saving");
+        await video.delete();
+        return;
+    }
+
+    const scenarioName = scenario.getName();
+    if (!scenarioName) {
+        console.warn("Scenario name is not available for video saving");
+        await video.delete();
+        return;
+    }
+
+    const fileName = scenarioName.replace(/\s+/g, "-");
     const filePath = path.join(
         "reports",
         "playwright-report",
@@ -17,9 +34,9 @@ async function saveVideo(
         `${fileName}.webm`,
     );
 
-    await page.video().saveAs(filePath);
+    await video.saveAs(filePath);
     // もともと作られていたランダムな文字列の名前の動画ファイルは削除しておく
-    await page.video().delete();
+    await video.delete();
 
     Gauge.writeMessage(
         `Video has been saved. To inspect, run:\n&nbsp;&nbsp;&gt;&nbsp;open &quot;${filePath}&quot;&nbsp;`,
@@ -27,7 +44,10 @@ async function saveVideo(
 }
 
 async function discardVideo(page: Page): Promise<void> {
-    await page.video().delete();
+    const video = page.video();
+    if (video) {
+        await video.delete();
+    }
 }
 
 export async function recordVideo(
@@ -35,9 +55,8 @@ export async function recordVideo(
     executionContext: ExecutionContext,
 ): Promise<void> {
     const recordVideo = process.env.record_video;
-    const isScenarioFailed = executionContext
-        .getCurrentScenario()
-        .getIsFailing();
+    const isScenarioFailed =
+        executionContext.getCurrentScenario()?.getIsFailing() ?? false;
 
     // 設定なし、もしくはoffの場合は何もしない
     if (!recordVideo || recordVideo === "off") {

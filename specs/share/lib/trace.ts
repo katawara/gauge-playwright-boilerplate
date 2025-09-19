@@ -6,10 +6,21 @@ async function saveTrace(
     browserContext: BrowserContext,
     executionContext: ExecutionContext,
 ): Promise<void> {
-    const fileName = executionContext
-        .getCurrentScenario()
-        .getName()
-        .replace(/\s+/g, "-");
+    const scenario = executionContext.getCurrentScenario();
+    if (!scenario) {
+        console.warn("No current scenario available for trace saving");
+        await browserContext.tracing.stop();
+        return;
+    }
+
+    const scenarioName = scenario.getName();
+    if (!scenarioName) {
+        console.warn("Scenario name is not available for trace saving");
+        await browserContext.tracing.stop();
+        return;
+    }
+
+    const fileName = scenarioName.replace(/\s+/g, "-");
     const filePath = path.join(
         "reports",
         "playwright-report",
@@ -34,9 +45,8 @@ export async function recordTrace(
     executionContext: ExecutionContext,
 ): Promise<void> {
     const recordTrace = process.env.record_trace;
-    const isScenarioFailed = executionContext
-        .getCurrentScenario()
-        .getIsFailing();
+    const isScenarioFailed =
+        executionContext.getCurrentScenario()?.getIsFailing() ?? false;
 
     // 設定なし、もしくはoffの場合は何もしない
     if (!recordTrace || recordTrace === "off") {
