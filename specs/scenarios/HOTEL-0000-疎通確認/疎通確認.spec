@@ -1,6 +1,6 @@
 # [HOTEL-0000] 疎通確認
 
-tags: sample
+tags: sample, health-check
 
 ## [HOTEL-0000] ログイン画面の表示確認
 

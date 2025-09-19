@@ -3,9 +3,11 @@
   "description": "A boilerplate for Gauge with Playwright",
   "scripts": {
     "run:all": "gauge run",
+    "run:health-check": "gauge run --tags \"health-check\"",
     "run:sample": "gauge run --tags \"sample\"",
     "run:stable": "gauge run --tags \"stable\"",
     "run:wip": "gauge run --tags \"wip\"",
+    "run:ci:health-check": "gauge run --env ci --tags \"health-check\"",
     "run:ci:sample": "gauge run --env ci --tags \"sample\"",
     "run:ci:stable": "gauge run --env ci --parallel --tags \"stable\" --max-retries-count=3",
     "run:ci:wip": "gauge run --env ci --parallel --tags \"wip\" --max-retries-count=3",
