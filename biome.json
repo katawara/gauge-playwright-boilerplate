@@ -11,6 +11,7 @@
       "**/*",
       "!**/.gauge",
       "!**/.git",
+      "!**/dist",
       "!**/logs",
       "!**/node_modules",
       "!**/reports"
