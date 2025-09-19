@@ -51,3 +51,22 @@ jobs:
         run: pnpm install
       - name: Compile
         run: pnpm compile
+
+  e2e-health-check:
+    name: E2E Health Check (use Gauge & Playwright)
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.55.0-noble
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: Setup Node.js environment
+        uses: jdx/mise-action@5ac50f778e26fac95da98d50503682459e86d566 # v3.2.0
+        with:
+          install_args: "node"
+      - name: Enable pnpm via Corepack
+        run: corepack enable pnpm
+      - name: Install dependencies
+        run: pnpm install
+      - name: Run E2E health check
+        run: pnpm run:ci:health-check
