@@ -12,6 +12,9 @@ reports
 ## Dependency directories
 node_modules
 
+## Compile output
+dist
+
 # mise
 ## https://mise.jdx.dev/configuration.html
 ## https://mise.jdx.dev/configuration/environments.html

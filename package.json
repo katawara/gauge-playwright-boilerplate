@@ -22,6 +22,7 @@
     "check:all": "pnpm check:specs && pnpm check:code",
     "check:all:apply": "pnpm check:specs:apply && pnpm check:code:apply",
     "check:ci:code": "biome ci .",
+    "compile": "pnpm exec tsc",
     "codegen": "playwright codegen",
     "codegen:sample": "playwright codegen \"https://hotel-example-site.takeyaqa.dev/ja/login.html\"",
     "show-trace": "playwright show-trace",
