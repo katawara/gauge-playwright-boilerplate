@@ -17,5 +17,17 @@
   "[json]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "biomejs.biome"
+  },
+  "emojisense.languages": {
+    "typescript": true,
+    "json": true,
+    "markdown": true,
+    "gauge": true,
+    "plaintext": {
+      "markupCompletionsEnabled": true,
+      "emojiDecoratorsEnabled": true
+    },
+    "scminput": true,
+    "git-commit": true
   }
 }

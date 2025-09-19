@@ -1,6 +1,10 @@
 {
   "name": "gauge-playwright-boilerplate",
   "description": "A boilerplate for Gauge with Playwright",
+  "keywords": [],
+  "author": "https://github.com/katawara",
+  "license": "MIT",
+  "packageManager": "pnpm@10.17.0+sha512.fce8a3dd29a4ed2ec566fb53efbb04d8c44a0f05bc6f24a73046910fb9c3ce7afa35a0980500668fa3573345bd644644fa98338fa168235c80f4aa17aa17fbef",
   "scripts": {
     "run:all": "gauge run",
     "run:health-check": "gauge run --tags \"health-check\"",
@@ -11,10 +15,12 @@
     "run:ci:sample": "gauge run --env ci --tags \"sample\"",
     "run:ci:stable": "gauge run --env ci --parallel --tags \"stable\" --max-retries-count=3",
     "run:ci:wip": "gauge run --env ci --parallel --tags \"wip\" --max-retries-count=3",
-    "validate:specs": "gauge validate",
-    "format:specs": "gauge format",
+    "check:specs": "gauge validate",
+    "check:specs:apply": "gauge format",
     "check:code": "biome check .",
     "check:code:apply": "biome check . --write",
+    "check:all": "pnpm check:specs && pnpm check:code",
+    "check:all:apply": "pnpm check:specs:apply && pnpm check:code:apply",
     "check:ci:code": "biome ci .",
     "codegen": "playwright codegen",
     "codegen:sample": "playwright codegen \"https://hotel-example-site.takeyaqa.dev/ja/login.html\"",
@@ -22,7 +28,7 @@
     "open-report": "open reports/html-report/index.html",
     "clean:node": "git clean -xdf node_modules",
     "clean:reports": "git clean -xdf reports",
-    "clean:install": "pnpm clean:node && pnpm install"
+    "clean:install": "pnpm clean:node && pnpm install && npx playwright install"
   },
   "dependencies": {
     "@playwright/test": "1.55.0",
