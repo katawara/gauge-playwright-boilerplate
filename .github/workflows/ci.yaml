@@ -54,6 +54,7 @@ jobs:
 
   e2e-health-check:
     name: E2E Health Check (use Gauge & Playwright)
+    timeout-minutes: 10
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.55.0-noble
@@ -64,6 +65,14 @@ jobs:
         uses: jdx/mise-action@5ac50f778e26fac95da98d50503682459e86d566 # v3.2.0
         with:
           install_args: "node"
+      # Playwrightのコンテナイメージを使うため、pnpmを手動でインストールする必要がある
+      - name: Setup pnpm
+        run: |
+          node --version
+          npm --version
+          pnpm --version"
+      - name: Install pnpm
+        run: npm install -g pnpm@10.17.0
       - name: Enable pnpm via Corepack
         run: corepack enable pnpm
       - name: Install dependencies
