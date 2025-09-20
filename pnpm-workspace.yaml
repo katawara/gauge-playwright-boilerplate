@@ -1,4 +1,5 @@
 onlyBuiltDependencies:
   - '@getgauge/cli'
   - protobufjs
-  - taiko
+# See: https://pnpm.io/settings#minimumreleaseage
+minimumReleaseAge: 1440 # 1 day

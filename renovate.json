@@ -3,6 +3,7 @@
   "labels": ["renovatebot"],
   "timezone": "Asia/Tokyo",
   "rangeStrategy": "pin",
+  "minimumReleaseAge": "7 days",
   "extends": ["config:recommended", "helpers:pinGitHubActionDigests"],
   "packageRules": [
     {
