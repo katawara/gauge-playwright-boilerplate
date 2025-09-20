@@ -4,7 +4,7 @@ GaugeとPlaywrightを組み合わせて作ったE2Eテストの実行環境で�
 クローンしたらすぐに使用・拡張していけるような完成度を目指しています。  
 あわせて、自身の運用の練習用としても活用していく想定です。
 
-## 使用技術スタック
+## 🚀 使用技術スタック
 
 本リポジトリは以下の技術スタックを採用しています。
 
@@ -23,7 +23,7 @@ GaugeとPlaywrightを組み合わせて作ったE2Eテストの実行環境で�
 - ライブラリアップデート: Renovate
 - CI: GitHub Actions
 
-## 環境構築 for Mac
+## 🛠️ 環境構築 for Mac
 
 ### 前提条件
 
@@ -82,7 +82,7 @@ node -v
 pnpm -v
 ```
 
-## 使用方法
+## 📖 使用方法
 
 ### テスト実行
 
@@ -139,7 +139,7 @@ pnpm show-trace "<トレースファイルのパス>"
 pnpm open-report
 ```
 
-## プロジェクト構成
+## 📁 プロジェクト構成
 
 ```
 gauge-playwright-boilerplate/
@@ -163,14 +163,14 @@ gauge-playwright-boilerplate/
 └── mise.toml                  # ランタイムバージョン設定
 ```
 
-## トラブルシューティング
+## 🔧 トラブルシューティング
 
 ### テスト実行時にエラーが発生する
 
 - `pnpm clean:install` を実行して、依存関係を再インストールします
 - それでもうまくいかなければ、エラーログを読み適切な対処をしましょう
 
-## 謝辞
+## 🙏 謝辞
 
 - サンプル実装として用意したテストは、[HOTEL PLANISPHERE \- テスト自動化練習サイト](https://hotel-example-site.takeyaqa.dev/ja/index.html)さんを対象にさせていただいております。ありがとうございます。
 - このリポジトリで実装しているアイディアは、[Scalebase株式会社](https://scalebase.co.jp/)で培った知見をベースにしています。ありがとうございます。
