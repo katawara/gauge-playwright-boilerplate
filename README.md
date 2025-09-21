@@ -103,6 +103,9 @@ pnpm e2e:wip
 # specのパスは、たとえば `specs/scenarios/HOTEL-0000-疎通確認/疎通確認.spec` のような形で指定する
 # Visual Studio Codeであれば、対象ファイルを右クリックして、"Copy Relative Path"を選んで使うと便利
 pnpm e2e "<specのパス>"
+# 特にCI環境を前提として動かしたい場合は `--env` を指定すると良い
+# 環境を指定するやり方は、環境に応じてアプリの接続先URLを変更する場合などで有効
+pnpm e2e --env ci "<specのパス>"
 ```
 
 ### CI環境での実行

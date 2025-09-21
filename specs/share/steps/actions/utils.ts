@@ -5,7 +5,7 @@ import { Generator } from "@/share/lib/generator";
 export default class Utils {
     private constructor() {}
 
-    @Step("特になし")
+    @Step(["特になし", "何もしない"])
     public static async doNothing() {
         // 何もしない
     }

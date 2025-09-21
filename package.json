@@ -30,6 +30,7 @@
     "open-report": "open reports/html-report/index.html",
     "clean:node": "git clean -xdf node_modules",
     "clean:reports": "git clean -xdf reports",
+    "clean:dist": "git clean -xdf dist",
     "clean:install": "pnpm clean:node && pnpm install && npx playwright install"
   },
   "dependencies": {
