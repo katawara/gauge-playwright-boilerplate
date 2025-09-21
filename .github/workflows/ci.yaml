@@ -9,9 +9,8 @@ on:
       - '**.yaml'
       - '**.properties'
       - '.github/workflows/**'
-    paths-ignore:
-      - '.vscode/**.json'
-      - '*.md'
+      - '!.vscode/**.json'
+      - '!*.md'
 jobs:
   lint-code:
     name: Lint code (use Biome)
