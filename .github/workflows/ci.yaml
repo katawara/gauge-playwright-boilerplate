@@ -101,4 +101,4 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Run E2E health check
-        run: pnpm run:ci:health-check
+        run: pnpm e2e:ci:health-check

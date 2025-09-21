@@ -88,24 +88,29 @@ pnpm -v
 
 ```sh
 # 全テスト実行
-pnpm run:all
+pnpm e2e:all
 
 # サンプルテストのみ実行
-pnpm run:sample
+pnpm e2e:sample
 
 # 安定版テストのみ実行
-pnpm run:stable
+pnpm e2e:stable
 
 # 作業中テストのみ実行
-pnpm run:wip
+pnpm e2e:wip
+
+# 個別実行
+# specのパスは、たとえば `specs/scenarios/HOTEL-0000-疎通確認/疎通確認.spec` のような形で指定する
+# Visual Studio Codeであれば、対象ファイルを右クリックして、"Copy Relative Path"を選んで使うと便利
+pnpm e2e "<specのパス>"
 ```
 
 ### CI環境での実行
 
 ```sh
 # 並列実行・リトライ付き
-pnpm run:ci:stable
-pnpm run:ci:wip
+pnpm e2e:ci:stable
+pnpm e2e:ci:wip
 ```
 
 ### コード品質維持に便利なコマンド
@@ -132,7 +137,7 @@ pnpm codegen "<対象WebサイトのURL>"
 
 # トレースを確認する
 # トレースファイルのパスは、reports/playwright-report/traces/XXXXX.zipを指定する
-# Visual Studio Codeであれば、対象ファイルを右クリックして、"Copy Relative Path"を選ぶと便利
+# Visual Studio Codeであれば、対象ファイルを右クリックして、"Copy Relative Path"を選んで使うと便利
 pnpm show-trace "<トレースファイルのパス>"
 
 # テストレポートを開く
