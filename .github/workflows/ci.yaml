@@ -1,5 +1,17 @@
 name: CI
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '**.ts'
+      - '**.json'
+      - '**.toml'
+      - '**.yaml'
+      - '**.properties'
+      - '.github/workflows/**'
+    paths-ignore:
+      - '.vscode/**.json'
+      - '*.md'
 jobs:
   lint-code:
     name: Lint code (use Biome)
