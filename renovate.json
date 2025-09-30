@@ -8,13 +8,8 @@
   "packageRules": [
     {
       "groupName": "playwright",
-      "matchManagers": ["npm"],
-      "matchPackageNames": ["@playwright/test"]
-    },
-    {
-      "groupName": "playwright",
-      "matchManagers": ["docker"],
-      "matchPackageNames": ["mcr.microsoft.com/playwright"]
+      "matchManagers": ["npm", "docker"],
+      "matchPackageNames": ["@playwright/test", "mcr.microsoft.com/playwright"]
     }
   ]
 }
