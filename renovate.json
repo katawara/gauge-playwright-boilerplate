@@ -8,7 +8,7 @@
   "packageRules": [
     {
       "groupName": "playwright",
-      "matchPackageNames": ["@playwright/test", "mcr.microsoft.com/playwright"]
+      "matchPackagePatterns": ["playwright"]
     }
   ]
 }
