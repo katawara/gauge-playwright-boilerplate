@@ -15,8 +15,8 @@ importers:
         specifier: 1.11.19
         version: 1.11.19
       gauge-ts:
-        specifier: 0.3.5
-        version: 0.3.5(@types/node@24.10.4)
+        specifier: 0.5.1
+        version: 0.5.1(@types/node@24.10.4)
       ts-node:
         specifier: 10.9.2
         version: 10.9.2(@types/node@24.10.4)(typescript@5.9.3)
@@ -104,8 +104,8 @@ packages:
     resolution: {integrity: sha512-/ReAgFfmCMi2lJ56IILuYVb9SlmmZoZVIldWvbL/ABrn5b9bxHTP3/+JKJP44rM4McRNs+xRnYD+1rO+sOW2OQ==}
     hasBin: true
 
-  '@grpc/grpc-js@1.14.0':
-    resolution: {integrity: sha512-N8Jx6PaYzcTRNzirReJCtADVoq4z7+1KQ4E70jTg/koQiMoUSN1kbNjPOqpPbhMFhfU1/l7ixspPl8dNY+FoUg==}
+  '@grpc/grpc-js@1.14.4':
+    resolution: {integrity: sha512-k9Dj3DV/itK9D06Y8f190Qgop7/Ui+D0njFV3LHMPwPT75DpXLQohE9Wmz0QElrJnzsjB7KPWiKJbOl7IPDArQ==}
     engines: {node: '>=12.10.0'}
 
   '@grpc/proto-loader@0.8.0':
@@ -233,8 +233,8 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
-  gauge-ts@0.3.5:
-    resolution: {integrity: sha512-R4fiodoMu68fRUIyboJZ9tvL2EiVFtR0YEe/K0GWR7lgSkG2fQEuWjtDKUQfWx2qDagRFEvZHKZxtN2gICiWVg==}
+  gauge-ts@0.5.1:
+    resolution: {integrity: sha512-wk7RV1w47aEonx6N/7/sA9hOhk21LKll0kam8SSezbz+Rm2At4UlQQ4TNM/K8uvKdYd6negO88RUsnB+BxlkwA==}
 
   get-caller-file@2.0.5:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
@@ -320,10 +320,6 @@ packages:
   undici-types@7.16.0:
     resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
 
-  uuid@8.3.2:
-    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
-    hasBin: true
-
   v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
 
@@ -392,7 +388,7 @@ snapshots:
     dependencies:
       adm-zip: 0.5.16
 
-  '@grpc/grpc-js@1.14.0':
+  '@grpc/grpc-js@1.14.4':
     dependencies:
       '@grpc/proto-loader': 0.8.0
       '@js-sdsl/ordered-map': 4.4.2
@@ -495,13 +491,12 @@ snapshots:
   fsevents@2.3.2:
     optional: true
 
-  gauge-ts@0.3.5(@types/node@24.10.4):
+  gauge-ts@0.5.1(@types/node@24.10.4):
     dependencies:
-      '@grpc/grpc-js': 1.14.0
+      '@grpc/grpc-js': 1.14.4
       google-protobuf: 3.21.4
       ts-node: 10.9.2(@types/node@24.10.4)(typescript@5.9.3)
       typescript: 5.9.3
-      uuid: 8.3.2
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -587,8 +582,6 @@ snapshots:
   typescript@5.9.3: {}
 
   undici-types@7.16.0: {}
-
-  uuid@8.3.2: {}
 
   v8-compile-cache-lib@3.0.1: {}
 
