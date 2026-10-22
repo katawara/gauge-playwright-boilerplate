@@ -21,9 +21,7 @@ jobs:
       - name: Setup Node.js environment
         uses: jdx/mise-action@08ae2a091c038e1e05ec6f5115dc5c69d5a2a6b8 # v5.1.2
         with:
-          install_args: "node"
-      - name: Enable pnpm via Corepack
-        run: corepack enable pnpm
+          install_args: "node pnpm"
       - name: Install dependencies
         run: pnpm install
       - name: Lint code
@@ -38,9 +36,7 @@ jobs:
       - name: Setup Node.js environment
         uses: jdx/mise-action@08ae2a091c038e1e05ec6f5115dc5c69d5a2a6b8 # v5.1.2
         with:
-          install_args: "node"
-      - name: Enable pnpm via Corepack
-        run: corepack enable pnpm
+          install_args: "node pnpm"
       - name: Install dependencies
         run: pnpm install
       - name: Lint Gauge specs
@@ -55,9 +51,7 @@ jobs:
       - name: Setup Node.js environment
         uses: jdx/mise-action@08ae2a091c038e1e05ec6f5115dc5c69d5a2a6b8 # v5.1.2
         with:
-          install_args: "node"
-      - name: Enable pnpm via Corepack
-        run: corepack enable pnpm
+          install_args: "node pnpm"
       - name: Install dependencies
         run: pnpm install
       - name: Compile
@@ -72,9 +66,7 @@ jobs:
       - name: Setup Node.js environment
         uses: jdx/mise-action@08ae2a091c038e1e05ec6f5115dc5c69d5a2a6b8 # v5.1.2
         with:
-          install_args: "node"
-      - name: Enable pnpm via Corepack
-        run: corepack enable pnpm
+          install_args: "node pnpm"
       - name: Install dependencies
         run: pnpm install
       - name: Audit dependencies
@@ -92,12 +84,7 @@ jobs:
       - name: Setup Node.js environment
         uses: jdx/mise-action@08ae2a091c038e1e05ec6f5115dc5c69d5a2a6b8 # v5.1.2
         with:
-          install_args: "node"
-      # Playwrightのコンテナイメージを使うため、pnpmを手動でインストールする必要がある
-      - name: Install pnpm
-        run: npm install -g pnpm@$(grep 'packageManager.*pnpm@' package.json | sed 's/.*pnpm@\([^+]*\).*/\1/')
-      - name: Enable pnpm via Corepack
-        run: corepack enable pnpm
+          install_args: "node pnpm"
       - name: Install dependencies
         run: pnpm install
       - name: Run E2E health check

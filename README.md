@@ -68,11 +68,8 @@ gauge --version
 ここからのコマンド実行はプロジェクトのルートディレクトリにいることを想定しています。
 
 ```sh
-# mise.tomlに設定されているnodeをインストールする
+# mise.tomlに設定されているnodeとpnpmをインストールする
 mise install
-
-# インストールしたnodeでpnpmを有効にする
-corepack enable pnpm
 
 # pnpmで依存パッケージをインストールする
 pnpm clean:install
