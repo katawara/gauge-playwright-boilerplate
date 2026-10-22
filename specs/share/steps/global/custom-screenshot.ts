@@ -3,6 +3,16 @@ import dayjs from "dayjs";
 import { CustomScreenshotWriter } from "gauge-ts";
 import { BrowserSession } from "@/share/lib/browser-control";
 
+/**
+ * gauge-tsのCustomScreenshotWriterは、型定義では同期関数しか受け付けないが、
+ * 実行時は戻り値のPromiseを待つ作りになっている。
+ * async関数を修飾できるよう、型だけを広げて使う。
+ */
+const AsyncCustomScreenshotWriter = CustomScreenshotWriter as unknown as () => (
+    target: () => Promise<string>,
+    context: ClassMethodDecoratorContext,
+) => void;
+
 export default class CustomScreenshot {
     private constructor() {}
 
@@ -14,7 +24,7 @@ export default class CustomScreenshot {
      * 環境変数のgauge_screenshots_dirで指定されているディレクトリにスクリーンショットを保存する。
      * @returns スクリーンショットのファイル名
      */
-    @CustomScreenshotWriter()
+    @AsyncCustomScreenshotWriter()
     public static async takeCustomScreenshot(): Promise<string> {
         const directory = process.env.gauge_screenshots_dir ?? "";
         const filePath = path.join(
