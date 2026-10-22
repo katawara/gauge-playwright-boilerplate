@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
-    "baseUrl": "./specs",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["./specs/*"]
     },
     /* Basic Options */
     "target": "es2020",
@@ -13,7 +12,7 @@
       "es2016"
     ] /* Specify library files to be included in the compilation:  */,
     /* Module Resolution Options */
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     /* Interoperability & Build Options */
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,

@@ -8,7 +8,12 @@
   "packageRules": [
     {
       "groupName": "playwright",
-      "matchPackagePatterns": ["playwright"]
+      "matchPackageNames": ["/playwright/"]
+    },
+    {
+      "description": "gauge-tsが依存するts-nodeはTypeScript 7で動かないため、gauge-tsが対応するまで7未満に留める",
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "<7"
     }
   ]
 }
