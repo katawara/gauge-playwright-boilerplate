@@ -43,6 +43,6 @@
   "devDependencies": {
     "@biomejs/biome": "2.5.15",
     "@getgauge/cli": "1.6.40",
-    "@types/node": "24.10.4"
+    "@types/node": "24.19.2"
   }
 }
