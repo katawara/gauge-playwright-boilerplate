@@ -1,5 +1,5 @@
 allowBuilds:
-  '@getgauge/cli': true
+  "@getgauge/cli": true
   protobufjs: true
 # See: https://pnpm.io/settings#minimumreleaseage
 minimumReleaseAge: 1440 # 1 day
