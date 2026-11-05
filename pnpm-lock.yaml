@@ -31,8 +31,8 @@ importers:
         specifier: 2.6.2
         version: 2.6.2
       '@getgauge/cli':
-        specifier: 1.6.41
-        version: 1.6.41
+        specifier: 1.6.42
+        version: 1.6.42
       '@types/node':
         specifier: 26.6.5
         version: 26.6.5
@@ -112,8 +112,8 @@ packages:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
     engines: {node: '>=12'}
 
-  '@getgauge/cli@1.6.41':
-    resolution: {integrity: sha512-qtJ6IybgvNE6cIAYuLiTpd8pDFaM32gVAM49LpyQJ4C81PNytthQpYHObHbH9+IIJkSAmNo1q1MsYzvnKp51CQ==}
+  '@getgauge/cli@1.6.42':
+    resolution: {integrity: sha512-rEVN0RLH/fIxYCU6Y/W5gaPLoGMJ168pIx1EyORkMZKoS0m8F6NHJQtQ1u+OJDXVVoFNwgClCmI5Z6HrJ/Vqng==}
     hasBin: true
 
   '@grpc/grpc-js@1.14.6':
@@ -401,7 +401,7 @@ snapshots:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
 
-  '@getgauge/cli@1.6.41':
+  '@getgauge/cli@1.6.42':
     dependencies:
       adm-zip: 0.6.1
 
