@@ -33,7 +33,7 @@
     "clean:install": "pnpm clean:node && pnpm install && npx playwright install"
   },
   "dependencies": {
-    "@playwright/test": "1.64.1",
+    "@playwright/test": "1.65.0",
     "dayjs": "1.11.23",
     "gauge-ts": "0.5.1",
     "ts-node": "10.9.2",
